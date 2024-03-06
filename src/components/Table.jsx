@@ -8,8 +8,6 @@ function UserTable() {
     useEffect(() => {
         const getUsers = async () => {
             try {
-                const token = localStorage.getItem('token')
-                console.log(token)
                 const response = await axios.post('http://localhost:5000/api/users/getAllUser',{},{
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem('token')}`
@@ -25,18 +23,18 @@ function UserTable() {
     }, []);
 
     return (
-        <div>
+        <div className="max-w-4xl mx-auto px-4 py-8">
             <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={() => setShowTable(!showTable)}
             >
-                Show Users
+                {showTable ? 'Hide Users' : 'Show Users'}
             </button>
             {showTable && (
                 <div className="mt-4">
                     <h2 className="text-xl font-semibold mb-2">User List:</h2>
-                    <table className="min-w-full">
-                        <thead>
+                    <table className="min-w-full bg-white shadow-md rounded">
+                        <thead className="bg-blue-500 text-white">
                             <tr>
                                 <th className="border px-4 py-2">User Name</th>
                                 <th className="border px-4 py-2">Email</th>
