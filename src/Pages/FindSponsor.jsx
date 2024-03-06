@@ -13,6 +13,10 @@ const Find = () => {
           </Link>
           <div className='flex gap-4'>
     <Sponsors/>
+    <Sponsors/>
+    <Sponsors/>
+    <Sponsors/>
+    <Sponsors/>
 
           </div>
       </div>
