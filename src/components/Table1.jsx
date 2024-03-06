@@ -7,7 +7,7 @@ function UserTable1() {
     const [count,setCount] = useState(1);
 
     const handleApprove = async (index) => {
-        const res = await axios.post('http://localhost:5000/api/admin/approvingApplication',{sponsorId:sponsors[index]._id,status:"approve"},{
+        const res = await axios.post('http://localhost:5000/api/admin/approve-sponsor',{sponsorId:sponsors[index]._id,status:"approved"},{
             headers:{
                 Authorization:`Bearer ${localStorage.getItem('token')}`
             }

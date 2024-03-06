@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function AdminNavbar() {
     const [isHovered, setIsHovered] = useState(false);
     const { user } = useSelector((state) => state.user)
+    const navigate = useNavigate()
+    
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -13,6 +16,12 @@ function AdminNavbar() {
     const handleMouseLeave = () => {
         setIsHovered(false);
     };
+
+    const logouthandle = () => {
+        localStorage.clear();
+        navigate("/login")
+        window.location.reload();
+    }
 
 
     return (
@@ -27,22 +36,22 @@ function AdminNavbar() {
                     </button>
 
                     <div className=' flex text-lg ml-14 space-x-10'>
-                       
+
                         <button><Link to="/Table">Users</Link></button>
-                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/Table1">
+                        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/Table1">
                             <div className="relative  ">
                                 <div>
                                     Sponsors
                                 </div>
-                              
+
                             </div>
                         </Link></button>
-                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/Table1">
+                        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/Table1">
                             <div className="relative  ">
                                 <div>
                                     Verify Sponsor
                                 </div>
-                              
+
                             </div>
                         </Link></button>
                     </div>
@@ -50,7 +59,7 @@ function AdminNavbar() {
 
                 <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
                     <div className='flex items-center justify-center'>
-                        <button>Logout</button>
+                        <button onClick={logouthandle}>Logout</button>
                     </div>
                     <Link to='/account'>
                         <div className='flex justify-center items-center '>

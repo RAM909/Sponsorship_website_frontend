@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function Navbar() {
     const [isHovered, setIsHovered] = useState(false);
     const { user } = useSelector((state) => state.user)
+    console.log(user);
     const navigate = useNavigate();
 
     const handleMouseEnter = () => {
@@ -16,10 +17,10 @@ function Navbar() {
         setIsHovered(false);
     };
 
-    const logouthandle =()=>{
+    const logouthandle = () => {
         localStorage.clear();
         navigate("/login")
-        window.location.reload();  
+        window.location.reload();
     }
 
 
@@ -40,7 +41,7 @@ function Navbar() {
                         <button><Link to="/RegSponsor">Be a Sponsor</Link></button>
                         <button className=''><Link to="/Requests">Requests</Link></button>
                         <button><Link to="/yourEvents">Your Events</Link></button>
-                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
+                        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
                             <div className="relative  ">
                                 <div>
                                     About
@@ -62,17 +63,17 @@ function Navbar() {
                     </div>
                 </div>
 
-                {user ?  <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
+                {user ? <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
                     <div className='flex items-center justify-center'>
                         <button onClick={logouthandle}>Logout</button>
                     </div>
                     <Link to='/account'>
                         <div className='flex justify-center items-center '>
-                            <div className='mr-3 ml-2'>{user? user.username : ""}</div>
+                            <div className='mr-3 ml-2'>{user ? user.username : ""}</div>
                             <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
                         </div>
                     </Link>
-                </div>: ""}
+                </div> : ""}
             </div>
         </nav>
     );
