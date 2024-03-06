@@ -48,6 +48,10 @@ const MoreInfo = () => {
         setShowApplyForm(true);
     };
 
+    const handleCloseForm = () => {
+        setShowApplyForm(false);
+    };
+
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         // Process form data here
@@ -133,7 +137,10 @@ const MoreInfo = () => {
             </div>
             {showApplyForm && (
                 <div className="absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
-                    <div className="bg-white p-6 rounded-lg">
+                    <div className="bg-white p-6 rounded-lg relative">
+                        <button onClick={handleCloseForm} className="absolute top-0 right-0 mt-2 mr-2 text-gray-600 hover:text-gray-800">
+                            Close
+                        </button>
                         <h2 className="text-2xl mb-4">Apply</h2>
                         <form onSubmit={handleFormSubmit}>
                             <div className="mb-4">
