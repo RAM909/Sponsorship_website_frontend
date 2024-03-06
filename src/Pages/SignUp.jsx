@@ -1,35 +1,38 @@
 import React, { useState } from 'react';
 
-const Login = () => {
+const signup = () => {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
-    const [email, setEmail] = useState('');
-
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Here you can handle the login logic, such as making an API call
+        // Here you can handle the sign-in logic, such as making an API call
         console.log('Username:', username);
+        console.log('Email:', email);
         console.log('Password:', password);
         // Clear the input fields after submission
         setUsername('');
+        setEmail('');
         setPassword('');
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen w-screen">
             <form onSubmit={handleSubmit} className="h-2/3 w-96 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8">
-                <div className="mb-4">
+                <div className="mb-4 ">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                         Username
                     </label>
@@ -57,7 +60,6 @@ const Login = () => {
                         required
                     />
                 </div>
-
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                         Password
@@ -77,7 +79,7 @@ const Login = () => {
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
                     >
-                        Login
+                        Sign Up
                     </button>
                 </div>
             </form>
@@ -85,4 +87,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default signup;
