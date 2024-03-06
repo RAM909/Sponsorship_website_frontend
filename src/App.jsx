@@ -32,6 +32,7 @@ function App() {
           <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           {/* <Route path="/Find" element={<FindSponsor />} /> */}
           <Route path="/login" element={<Login />} />
+          <Route path="/find" element={<FindSponsor />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/register" element={<ApplicationForm />} />
           <Route path="/AdminNavbar" element={<AdminNavbar />} />
