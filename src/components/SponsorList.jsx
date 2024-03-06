@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const SponsorList = () => {
+
+   
+
     return (
         <>
 
@@ -16,7 +19,7 @@ const SponsorList = () => {
                     </div>
                     <div>
                         <h2 className="text-lg font-bold">Events Sponsored</h2>
-                        <p>10</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
