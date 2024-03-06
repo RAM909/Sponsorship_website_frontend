@@ -1,28 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import Styles from "./Products.module.css";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from 'react-router-dom'
+import { useNavigate } from 'react-router';
 
 const NewSponsors = () => {
     const [sponser, setSponser] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchSponser = async () => {
-            // Your API call code
+            try {
+                const response = await axios.post("http://localhost:5000/api/sponsor/getAllSponsors", {}, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                if (response.data.success) {
+                    setSponser(response.data.sponsor);
+                    console.log(response.data.sponsor);
+                    alert(response.data.message);
+                } else {
+                    console.log("error", response.data.error);
+                    alert(response.data.message);
+                }
+            } catch (error) {
+                console.log("server Error", error);
+                alert("Server Error");
+            }
         };
 
         fetchSponser();
-    }, []);
+    }, []); // Empty dependency array ensures this effect runs only once after initial render
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
     };
+    const handlebuttonclick = (id) => {
+        navigate(`/MoreInfo/${id}`);
 
-    const handlebuttonclick = (id) => { // Modify handlebuttonclick to accept the sponsor id
-        navigate(`/sponsorinfo/${id}`); // Navigate to the info page with sponsor id
-    };
+    }
 
     const filteredSponser = sponser.filter((sponsor) =>
         sponsor.industry.toLowerCase().includes(searchTerm.toLowerCase())
@@ -57,6 +74,7 @@ const NewSponsors = () => {
                                     More Info
                                 </button>
                             </div>
+
                         </div>
                     </div>
                 ))}
