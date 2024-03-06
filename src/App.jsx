@@ -9,27 +9,28 @@ import { UserProvider } from './feature/userslice';
 import ApplicationForm from './components/ApplicationForm';
 import FindSponsor from './Pages/FindSponsor';
 import HomePage from './Pages/Home';
+import PrivateRoute from './layout/PrivateRoute';
 function App() {
 
-    return (
-      <>
+  return (
+    <>
 
 
-        <Router>
-          {/* <Navbar/>  */}
-          <Routes>
-            <Route path="/" element={< HomePage/>} />
-            <Route path="/Find" element={<FindSponsor />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/register" element={<ApplicationForm />} />
+      <Router>
+        {/* <Navbar/>  */}
+        <Routes>
+          <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+          <Route path="/Find" element={<FindSponsor />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/register" element={<ApplicationForm />} />
 
-          </Routes>
+        </Routes>
 
-        </Router>
+      </Router>
 
-      </>
-    )
-  }
+    </>
+  )
+}
 
 export default App;
