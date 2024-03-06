@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ApplicationForm = () => {
     const [formData, setFormData] = useState({
-        industry: '',
+        eventName: '',
         description: '',
         contact_email: '',
         contact_phone: '',
@@ -40,7 +40,7 @@ const ApplicationForm = () => {
         if (isStepValid) {
             setStep(step + 1);
         } else {
-
+            // Handle validation error
         }
     };
 
@@ -52,7 +52,7 @@ const ApplicationForm = () => {
     const getVisibleFields = (step) => {
         switch (step) {
             case 1:
-                return ['industry', 'description'];
+                return ['eventName', 'description'];
             case 2:
                 return ['contact_email', 'contact_phone'];
             case 3:
@@ -64,6 +64,16 @@ const ApplicationForm = () => {
         }
     };
 
+    // Options for eventName field
+    const eventOptions = [
+        'Tech Event',
+        'Cultural Event',
+        'Music Festival',
+        'Art Exhibition',
+        'Sports Tournament',
+        'Food Fair',
+    ];
+
     return (
         <div className="max-w-md mx-auto mt-8 px-4">
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg overflow-hidden">
@@ -71,15 +81,18 @@ const ApplicationForm = () => {
                     {step === 1 && (
                         <>
                             <label className="block">
-                                <span className="text-gray-700">Industry</span>
-                                <input
-                                    type="text"
-                                    name="industry"
-                                    value={formData.industry}
+                                <span className="text-gray-700">Event Name:</span>
+                                <select
+                                    name="eventName"
+                                    value={formData.eventName}
                                     onChange={handleChange}
                                     className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                                    placeholder="Enter Industry"
-                                />
+                                >
+                                    <option value="">Select Event Name</option>
+                                    {eventOptions.map((option, index) => (
+                                        <option key={index} value={option}>{option}</option>
+                                    ))}
+                                </select>
                             </label>
 
                             <label className="block">
@@ -93,7 +106,6 @@ const ApplicationForm = () => {
                                     required
                                 />
                             </label>
-
                         </>
                     )}
                     {step === 2 && (
