@@ -37,7 +37,14 @@ function AdminNavbar() {
                               
                             </div>
                         </Link></button>
-
+                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/Table1">
+                            <div className="relative  ">
+                                <div>
+                                    Verify Sponsor
+                                </div>
+                              
+                            </div>
+                        </Link></button>
                     </div>
                 </div>
 
