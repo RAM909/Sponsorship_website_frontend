@@ -7,7 +7,6 @@ const signup = () => {
     const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { updateUser } = useContext(UserContext);
     const navigate = useNavigate()
 
     const handleUsernameChange = (event) => {
@@ -28,21 +27,16 @@ const signup = () => {
         const signupUser = async () => {
             const response = await postUserRegister({ email, userName, password });
             if (response.success) {
-                toast.success("Signup successfull");
+                alert("succesfull")
                 localStorage.setItem("token", response.token);
-                updateUser(response.data.user);
-                navigate("/");
+                console.log(response);
+                navigate("/login");
             } else {
                 alert(response.message);
             }
         };
         signupUser();
-        console.log('Username:', userName);
-        console.log('Email:', email);
-        console.log('Password:', password);
-        // setUsername('');
-        // setEmail('');
-        // setPassword('');
+
     };
 
     return (

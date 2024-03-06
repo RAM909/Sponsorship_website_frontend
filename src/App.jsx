@@ -8,6 +8,7 @@ import SignUp from './Pages/SignUp';
 import { UserProvider } from './feature/userslice';
 import ApplicationForm from './components/ApplicationForm';
 import FindSponsor from './Pages/FindSponsor';
+import HomePage from './Pages/Home';
 function App() {
 
     return (
@@ -17,7 +18,7 @@ function App() {
         <Router>
           {/* <Navbar/>  */}
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={< HomePage/>} />
             <Route path="/Find" element={<FindSponsor />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
