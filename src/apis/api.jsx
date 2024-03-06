@@ -24,3 +24,18 @@ export const postUserRegister = async (data) => {
 };
 
 
+export const getSponserdata = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      const response = await axios.post(`${host}/api/sponsor/getAllSponsors`, { headers });
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
