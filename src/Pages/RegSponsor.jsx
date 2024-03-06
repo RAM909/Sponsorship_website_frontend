@@ -18,7 +18,7 @@ const RegSponsor = () => {
         contact_phone: '',
         budget: '',
         location: '',
-        sponsor_id: user.userID
+        sponsor_id: user?.userID
     });
 
     const handleChange = (e) => {
@@ -49,7 +49,7 @@ const RegSponsor = () => {
                     contact_phone: '',
                     budget: '',
                     location: '',
-                    sponsor_id: user.userID
+                    sponsor_id: user?.userID
                 })
 
                 navigate('/Events')
