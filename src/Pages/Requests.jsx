@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Layout from '../layout/layout';
 const Requests = () => {
     // Sample array of requests (replace with actual data)
     const requests = [
@@ -9,6 +9,10 @@ const Requests = () => {
     ];
 
     return (
+        <>
+        <Layout>
+
+
         <div className="container mx-auto px-4 py-8">
             <h2 className="text-2xl font-bold mb-4">Requests</h2>
             <div className="overflow-x-auto">
@@ -30,6 +34,8 @@ const Requests = () => {
                 </table>
             </div>
         </div>
+                        </Layout>
+                        </>
     );
 };
 

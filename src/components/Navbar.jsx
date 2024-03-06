@@ -62,7 +62,7 @@ function Navbar() {
                     </div>
                 </div>
 
-               {user ?  <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
+                {user ?  <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
                     <div className='flex items-center justify-center'>
                         <button onClick={logouthandle}>Logout</button>
                     </div>

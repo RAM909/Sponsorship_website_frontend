@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Layout from '../layout/layout';
 
 const RegSponsor = () => {
     const [formData, setFormData] = useState({
@@ -25,6 +26,9 @@ const RegSponsor = () => {
     };
 
     return (
+        <>
+        <Layout>
+
         <div className="max-w-md mx-auto p-8 bg-white shadow-md rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">Register Sponsor</h2>
             <form onSubmit={handleSubmit}>
@@ -55,6 +59,8 @@ const RegSponsor = () => {
                 <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
             </form>
         </div>
+        </Layout>
+        </>
     );
 };
 

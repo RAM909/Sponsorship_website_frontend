@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ApplicationForm = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const ApplicationForm = () => {
 
     const [step, setStep] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false); // Add state for submission status
+    const navigate = useNavigate(); // Initialize useNavigate hook
 
     const handleChange = (e) => {
         const { name, value, type } = e.target;
@@ -31,6 +33,8 @@ const ApplicationForm = () => {
                 // Simulate API request delay
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 console.log(formData);
+                // Redirect to Opportunities after successful submission
+                navigate('/Opportunites');
             } catch (error) {
                 console.error('Error submitting form:', error);
             } finally {
