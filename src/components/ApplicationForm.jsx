@@ -8,7 +8,7 @@ const ApplicationForm = () => {
         reason: '',
         money: '',
         location: '',
-        photo: ''
+        date: ''
     });
 
     const [step, setStep] = useState(1);
@@ -67,7 +67,7 @@ const ApplicationForm = () => {
             case 2:
                 return ['money', 'location'];
             case 3:
-                return ['photo'];
+                return ['date'];
             default:
                 return [];
         }
@@ -95,7 +95,7 @@ const ApplicationForm = () => {
                                     name="eventName"
                                     value={formData.eventName}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                     placeholder="Enter Event Name"
                                     required
                                 />
@@ -107,7 +107,7 @@ const ApplicationForm = () => {
                                     name="eventType"
                                     value={formData.eventType}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                     required
                                 >
                                     <option value="">Select Event Type</option>
@@ -123,7 +123,7 @@ const ApplicationForm = () => {
                                     name="reason"
                                     value={formData.reason}
                                     onChange={handleChange}
-                                    className="form-textarea mt-1 block w-full border-gray-300 rounded-md shadow-sm text-left resize-none"
+                                    className="form-textarea mt-1 block w-full border border-gray-300 rounded-md shadow-sm text-left resize-none"
                                     rows={4}
                                     required
                                 />
@@ -134,19 +134,19 @@ const ApplicationForm = () => {
                         <>
                             <label className="block">
                                 <span className="text-gray-700">Money:</span>
-                                <input type="text" name="money" value={formData.money} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
+                                <input type="text" name="money" value={formData.money} onChange={handleChange} className="form-input mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required />
                             </label>
                             <label className="block">
                                 <span className="text-gray-700">Location:</span>
-                                <input type="text" name="location" value={formData.location} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
+                                <input type="text" name="location" value={formData.location} onChange={handleChange} className="form-input mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required />
                             </label>
                         </>
                     )}
                     {step === 3 && (
                         <>
                             <label className="block">
-                                <span className="text-gray-700">Photo:</span>
-                                <input type="file" accept=".jpg, .jpeg, .png" name="photo" onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
+                                <span className="text-gray-700">Date:</span>
+                                <input type="date" name="date" value={formData.date} onChange={handleChange} className="form-input mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required />
                             </label>
                         </>
                     )}

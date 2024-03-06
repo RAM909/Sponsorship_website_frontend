@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <section className="hero relative">
       <Layout>
-        <img src={topImage} alt="Top Image" className="top-image object-cover backdrop-blur-lg blur-sm h-screen w-screen" />
+        <img src={topImage} alt="Top Image" className="top-image object-cover backdrop-blur-lg  h-screen w-screen" />
         <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
           <div className="text-center text-white">
             <h1 className="text-4xl font-bold mb-4">Welcome to Our Platform</h1>

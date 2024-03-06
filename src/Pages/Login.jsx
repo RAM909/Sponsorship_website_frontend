@@ -30,7 +30,7 @@ const Login = () => {
             if (response.data.success) {
                 localStorage.setItem("token", response.data.token);
                 alert("User logged in successfully");
-                navigate("/");
+                navigate("/home");
             } else {
                 alert("Error in login");
             }

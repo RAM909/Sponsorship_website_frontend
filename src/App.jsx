@@ -20,6 +20,7 @@ import RegSponsor from './Pages/RegSponsor';
 import Request from './Pages/Requests';
 import YourEvents from './Pages/Events';
 import MoreInfo from './Pages/MoreInfo';
+import Landing from './Pages/Landing';
 function App() {
 
   return (
@@ -29,7 +30,8 @@ function App() {
       <Router>
         {/* <Navbar/>  */}
         <Routes>
-          <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+          <Route path="/" element={<Landing/>} />
+          <Route path="/Home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           {/* <Route path="/Find" element={<FindSponsor />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/find" element={<FindSponsor />} />
