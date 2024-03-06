@@ -10,6 +10,8 @@ import ApplicationForm from './components/ApplicationForm';
 import FindSponsor from './Pages/FindSponsor';
 import HomePage from './Pages/Home';
 import PrivateRoute from './layout/PrivateRoute';
+import AdminNavbar from './components/AdminNavbar';
+import Table from './components/Table'
 function App() {
 
   return (
@@ -24,7 +26,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/register" element={<ApplicationForm />} />
-
+          <Route path="/admin" element= {< AdminNavbar/>}/>
+          <Route path='/Table' element={<Table/>}/>
         </Routes>
 
       </Router>
