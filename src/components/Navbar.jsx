@@ -12,52 +12,53 @@ function Navbar() {
         setIsHovered(false);
     };
 
+
     return (
         <nav className="sticky z-50 top-0 bg-slate-500 text-xl">
-            <div className="flex justify-between items-center h-20 mx-auto max-w-6xl px-6">
-                <div className="flex items-center">
+            <div className="flex justify-start space-x-11 h-20">
+                <div className="flex justify-center align-middle">
                     <button>
-                        <Link to="/" className="text-2xl flex items-center">
-                            <img className='w-10 h-10 mr-2' src="https://cdn-icons-png.flaticon.com/512/9752/9752709.png" alt="" />
+                        <Link to="/" className="text-2xl flex justify-center align-middle">
+                            <img className='size-10' src="https://cdn-icons-png.flaticon.com/512/9752/9752709.png" alt="" />
                             Sponsor Finder
                         </Link>
                     </button>
 
-                    <div className='hidden md:flex text-lg ml-14 space-x-10'>
+                    <div className=' flex text-lg ml-14 space-x-10'>
                         <button><Link to="/Find">Sponsors</Link></button>
-                        <button><Link to="/Opportunites">Opportunites</Link></button>
-                        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                            <Link to="/About">
-                                <div className="relative">
-                                    <div>About</div>
-                                    <div className={`mt-6 border rounded-md border-black h-40 w-40 bg-gray-500 absolute ${isHovered ? 'visible' : 'hidden'}`}>
-                                        <ol className='text-white text-start'>
-                                            <Link to="/AboutUS"><li>About us</li></Link>
-                                            <Link to="/pricing"><li>Pricing us</li></Link>
-                                            <Link to="/Privacy"><li>Privacy Policy</li></Link>
-                                        </ol>
-                                    </div>
+                        <button><Link to="/Opportunites">Opportunities</Link></button>
+                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
+                            <div className="relative  ">
+                                <div>
+                                    About
                                 </div>
-                            </Link>
-                        </button>
+                                <div className={`mt-6 border
+                                rounded-md border-black h-40 w-40 bg-gray-500 absolute ${isHovered ? 'visible' : 'hidden'}`}>
+                                    <ol className='text-white text-start'>
+                                        <Link to ="/AboutUS"><li>About us</li></Link>
+                                        
+                                        <Link to ="/pricing"><li>Pricing us</li></Link>
+                                        
+                                        <Link to ="/Privacy"><li>Privacy Policy</li></Link>
+                                        
+                                    </ol>
+                                </div>
+                            </div>
+                        </Link></button>
+
                     </div>
                 </div>
-
-                <div className="flex items-center">
-                    <button className='md:hidden'>
-                        <img className='w-10 h-10 mr-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
-                    </button>
-                    <div className="hidden md:flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
-                        <div className='flex mr-10 items-center justify-center'>
-                            <button>Logout</button>
-                        </div>
-                        <Link to='/account'>
-                            <div className='flex justify-center items-center '>
-                                <div className='mr-3'>username</div>
-                                <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
-                            </div>
-                        </Link>
+                
+                <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
+                    <div className='flex items-center justify-center'>
+                        <button>Logout</button>
                     </div>
+                    <Link to='/account'>
+                        <div className='flex justify-center items-center '>
+                            <div className='mr-3'>username</div>
+                            <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </nav>
@@ -65,4 +66,3 @@ function Navbar() {
 }
 
 export default Navbar;
-    

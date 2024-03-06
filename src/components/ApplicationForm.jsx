@@ -40,7 +40,7 @@ const ApplicationForm = () => {
         if (isStepValid) {
             setStep(step + 1);
         } else {
-            
+
         }
     };
 
@@ -81,8 +81,16 @@ const ApplicationForm = () => {
                             </label>
                             <label className="block">
                                 <span className="text-gray-700">Description:</span>
-                                <input type="text" name="description" value={formData.description} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
+                                <textarea
+                                    name="description"
+                                    value={formData.description}
+                                    onChange={handleChange}
+                                    className="form-textarea mt-1 block w-full border-gray-300 rounded-md shadow-sm text-left resize-none"
+                                    rows={4} // Adjust the number of rows as needed
+                                    required
+                                />
                             </label>
+
                         </>
                     )}
                     {step === 2 && (
