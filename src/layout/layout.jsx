@@ -9,11 +9,12 @@ const Layout = (props) => {
     const categoriesIcons = () => {
         setShowCategories(!showCategories)
     }
-    const user = useSelector(state=>state.user)
+    const {user} = useSelector(state=>state.user)
     
     return (
         <>
-            {user?.isAdmin ? <AdminNavbar/>:<Navbar />}
+            {user?.isAdmin ? <AdminNavbar/>:<Navbar /> }
+            {user?.isAdmin}
             
             <main>{props.children}</main>
             <Footer />

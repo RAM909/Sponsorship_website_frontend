@@ -7,9 +7,11 @@ import Login from './Pages/Login'
 import SignUp from './Pages/SignUp';
 import { UserProvider } from './feature/userslice';
 import ApplicationForm from './components/ApplicationForm';
-import FindSponsor from './Pages/FindSponsor';
+import FindSponsor from './Pages/TopSponsor';
 import HomePage from './Pages/Home';
 import PrivateRoute from './layout/PrivateRoute';
+import AdminNavbar from './components/AdminNavbar';
+import Table from './components/Table'
 import Update from './Pages/Update';
 import SponsorList from './components/SponsorList';
 import NewSponsors from './Pages/NewSponsors';
@@ -27,7 +29,7 @@ function App() {
         {/* <Navbar/>  */}
         <Routes>
           <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
-          <Route path="/Find" element={<FindSponsor />} />
+          {/* <Route path="/Find" element={<FindSponsor />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/register" element={<ApplicationForm />} />
