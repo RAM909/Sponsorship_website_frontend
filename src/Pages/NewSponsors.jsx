@@ -24,9 +24,6 @@ const NewSponsors = () => {
                     <SponsorList />
                     <SponsorList />
                     <SponsorList />
-                    <SponsorList />
-                    <SponsorList />
-                    <SponsorList />
                 </div>
             </div>
         </>

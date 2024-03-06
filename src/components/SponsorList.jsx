@@ -16,7 +16,7 @@ const SponsorList = () => {
                     </div>
                     <div>
                         <h2 className="text-lg font-bold">Events Sponsored</h2>
-                        <p>10</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
