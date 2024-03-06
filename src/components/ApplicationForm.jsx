@@ -3,21 +3,18 @@ import React, { useState } from 'react';
 const ApplicationForm = () => {
     const [formData, setFormData] = useState({
         eventName: '',
-        description: '',
-        contact_email: '',
-        contact_phone: '',
-        budget: '',
+        eventType: '',
+        reason: '',
+        money: '',
         location: '',
-        video: '',
         photo: ''
     });
 
     const [step, setStep] = useState(1);
+    const [isSubmitting, setIsSubmitting] = useState(false); // Add state for submission status
 
     const handleChange = (e) => {
         const { name, value, type } = e.target;
-
-        // Check if the input type is file
         const inputValue = type === 'file' ? e.target.files[0] : value;
 
         setFormData({
@@ -26,19 +23,30 @@ const ApplicationForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log(formData);
+        if (!isSubmitting) {
+            setIsSubmitting(true); // Set isSubmitting to true when form is submitted
+            try {
+                // Simulate API request delay
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                console.log(formData);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+            } finally {
+                setIsSubmitting(false); // Set isSubmitting back to false after submission
+            }
+        }
     };
 
     const nextStep = () => {
-        // Check if all visible fields are filled before proceeding to the next step
         const visibleFields = getVisibleFields(step);
         const isStepValid = visibleFields.every(field => formData[field]);
 
         if (isStepValid) {
-            setStep(step + 1);
+            if (step !== 3) {
+                setStep(step + 1);
+            }
         } else {
             // Handle validation error
         }
@@ -48,24 +56,20 @@ const ApplicationForm = () => {
         setStep(step - 1);
     };
 
-    // Helper function to get the list of visible fields for the current step
     const getVisibleFields = (step) => {
         switch (step) {
             case 1:
-                return ['eventName', 'description'];
+                return ['eventName', 'eventType', 'reason'];
             case 2:
-                return ['contact_email', 'contact_phone'];
+                return ['money', 'location'];
             case 3:
-                return ['budget', 'location'];
-            case 4:
-                return ['video', 'photo'];
+                return ['photo'];
             default:
                 return [];
         }
     };
 
-    // Options for eventName field
-    const eventOptions = [
+    const eventTypeOptions = [
         'Tech Event',
         'Cultural Event',
         'Music Festival',
@@ -82,27 +86,41 @@ const ApplicationForm = () => {
                         <>
                             <label className="block">
                                 <span className="text-gray-700">Event Name:</span>
-                                <select
+                                <input
+                                    type="text"
                                     name="eventName"
                                     value={formData.eventName}
                                     onChange={handleChange}
                                     className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Event Name"
+                                    required
+                                />
+                            </label>
+
+                            <label className="block">
+                                <span className="text-gray-700">Event Type:</span>
+                                <select
+                                    name="eventType"
+                                    value={formData.eventType}
+                                    onChange={handleChange}
+                                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
                                 >
-                                    <option value="">Select Event Name</option>
-                                    {eventOptions.map((option, index) => (
+                                    <option value="">Select Event Type</option>
+                                    {eventTypeOptions.map((option, index) => (
                                         <option key={index} value={option}>{option}</option>
                                     ))}
                                 </select>
                             </label>
 
                             <label className="block">
-                                <span className="text-gray-700">Description:</span>
+                                <span className="text-gray-700">Reason:</span>
                                 <textarea
-                                    name="description"
-                                    value={formData.description}
+                                    name="reason"
+                                    value={formData.reason}
                                     onChange={handleChange}
                                     className="form-textarea mt-1 block w-full border-gray-300 rounded-md shadow-sm text-left resize-none"
-                                    rows={4} // Adjust the number of rows as needed
+                                    rows={4}
                                     required
                                 />
                             </label>
@@ -111,20 +129,8 @@ const ApplicationForm = () => {
                     {step === 2 && (
                         <>
                             <label className="block">
-                                <span className="text-gray-700">Contact Email:</span>
-                                <input type="email" name="contact_email" value={formData.contact_email} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
-                            </label>
-                            <label className="block">
-                                <span className="text-gray-700">Contact Phone:</span>
-                                <input type="tel" name="contact_phone" value={formData.contact_phone} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
-                            </label>
-                        </>
-                    )}
-                    {step === 3 && (
-                        <>
-                            <label className="block">
-                                <span className="text-gray-700">Budget:</span>
-                                <input type="text" name="budget" value={formData.budget} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
+                                <span className="text-gray-700">Money:</span>
+                                <input type="text" name="money" value={formData.money} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
                             </label>
                             <label className="block">
                                 <span className="text-gray-700">Location:</span>
@@ -132,15 +138,11 @@ const ApplicationForm = () => {
                             </label>
                         </>
                     )}
-                    {step === 4 && (
+                    {step === 3 && (
                         <>
                             <label className="block">
-                                <span className="text-gray-700">Video:</span>
-                                <input type="file" name="video" value={formData.video} onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
-                            </label>
-                            <label className="block">
                                 <span className="text-gray-700">Photo:</span>
-                                <input type="file" accept=".jpg, .jpeg, .png" name="photo" onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                                <input type="file" accept=".jpg, .jpeg, .png" name="photo" onChange={handleChange} className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" required />
                             </label>
                         </>
                     )}
@@ -149,10 +151,10 @@ const ApplicationForm = () => {
                     {step !== 1 && (
                         <button onClick={prevStep} className="mr-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Previous</button>
                     )}
-                    {step !== 4 ? (
-                        <button onClick={nextStep} className="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Next</button>
+                    {step !== 3 ? (
+                        <button onClick={nextStep} className={`py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>Next</button>
                     ) : (
-                        <button type="submit" className="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Submit</button>
+                        <button type="button" onClick={handleSubmit} disabled={isSubmitting} className={`py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>Submit</button>
                     )}
                 </div>
             </form>

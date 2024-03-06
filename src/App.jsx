@@ -13,6 +13,10 @@ import PrivateRoute from './layout/PrivateRoute';
 import Update from './Pages/Update';
 import SponsorList from './components/SponsorList';
 import NewSponsors from './Pages/NewSponsors';
+import RegSponsor from './Pages/RegSponsor';  
+import Request from './Pages/Requests';
+import YourEvents from './Pages/YourEvents';
+import MoreInfo from './Pages/MoreInfo';
 function App() {
 
   return (
@@ -29,6 +33,10 @@ function App() {
           <Route path="/register" element={<ApplicationForm />} />
           <Route path="/update" element={<Update/>} />
           <Route path="/Opportunites" element={<NewSponsors/>} />
+          <Route path="/RegSponsor" element={<RegSponsor  />} />
+          <Route path="/Requests" element={<Request/>} />
+          <Route path="/yourEvents" element={<YourEvents/>} />
+          <Route path="/MoreInfo" element={<MoreInfo/>} />
 
         </Routes>
 
