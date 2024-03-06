@@ -45,7 +45,7 @@ const Login = () => {
     return (
         <Layout>
             <div className="flex justify-center items-center h-screen">
-                <form onSubmit={handleSubmit} className="h-2/3 w-96 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8">
+                <form onSubmit={handleSubmit} className="h-2/4 w-96 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8">
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                             Email

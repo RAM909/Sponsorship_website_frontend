@@ -72,13 +72,16 @@ const ApplicationForm = () => {
                         <>
                             <label className="block">
                                 <span className="text-gray-700">Industry</span>
-                                <select name="industry" value={formData.industry} onChange={handleChange} className="form-select mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                    <option value="">Select Industry</option>
-                                    <option value="IT">Information Technology</option>
-                                    <option value="Healthcare">Healthcare</option>
-                                    <option value="Finance">Finance</option>
-                                </select>
+                                <input
+                                    type="text"
+                                    name="industry"
+                                    value={formData.industry}
+                                    onChange={handleChange}
+                                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Industry"
+                                />
                             </label>
+
                             <label className="block">
                                 <span className="text-gray-700">Description:</span>
                                 <textarea

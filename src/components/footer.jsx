@@ -18,10 +18,8 @@ const Footer = () => {
 
     return (
         <>
-
-
-<footer class="bottom-0 absolute w-full bg-blue-100/80 font-sans dark:bg-gray-900">
-    <div class="container px-6 py-12 mx-auto">
+        <footer className="bottom-0 relative mt-28 w-full bg-blue-100/80 font-sans dark:bg-gray-900">
+            <div className="container px-6 py-12 mx-auto">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
             <div class="sm:col-span-2">
                 <h1 class="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">Subscribe our newsletter to get an update.</h1>
