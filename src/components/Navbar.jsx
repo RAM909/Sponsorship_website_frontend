@@ -27,6 +27,7 @@ function Navbar() {
                     <div className=' flex text-lg ml-14 space-x-10'>
                         <button><Link to="/Find">Sponsors</Link></button>
                         <button><Link to="/Opportunites">Opportunities</Link></button>
+                        <button><Link to="/updates">Updates</Link></button>
                         <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
                             <div className="relative  ">
                                 <div>

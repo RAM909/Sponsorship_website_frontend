@@ -11,12 +11,17 @@ const Find = () => {
           Apply for a new event
         </button>
           </Link>
+          <h1 className='font-bold text-3xl underline mb-10'>Suggested Sponsors</h1>
           <div className='flex gap-4'>
+
+    <div className='flex gap-10'>
     <Sponsors/>
     <Sponsors/>
     <Sponsors/>
     <Sponsors/>
     <Sponsors/>
+    </div>
+    
 
           </div>
       </div>

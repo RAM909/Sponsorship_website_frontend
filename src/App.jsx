@@ -9,6 +9,7 @@ import { UserProvider } from './feature/userslice';
 import ApplicationForm from './components/ApplicationForm';
 import FindSponsor from './Pages/FindSponsor';
 import HomePage from './Pages/Home';
+import NewSponsors from './Pages/NewSponsors';
 function App() {
 
     return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/register" element={<ApplicationForm />} />
+            <Route path="/Opportunites" element={<NewSponsors />} />
 
           </Routes>
 
