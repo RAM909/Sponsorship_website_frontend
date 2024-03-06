@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Navbar() {
     const [isHovered, setIsHovered] = useState(false);
+    const {user}=useSelector((state)=>state.user)
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -55,7 +57,7 @@ function Navbar() {
                     </div>
                     <Link to='/account'>
                         <div className='flex justify-center items-center '>
-                            <div className='mr-3'>username</div>
+                            <div className='mr-3'>{user.username}</div>
                             <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
                         </div>
                     </Link>
