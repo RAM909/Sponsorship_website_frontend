@@ -18,7 +18,7 @@ import SponsorList from './components/SponsorList';
 import NewSponsors from './Pages/NewSponsors';
 import RegSponsor from './Pages/RegSponsor';
 import Request from './Pages/Requests';
-import YourEvents from './Pages/YourEvents';
+import YourEvents from './Pages/Events';
 import MoreInfo from './Pages/MoreInfo';
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
           <Route path="/Opportunites" element={<NewSponsors />} />
           <Route path="/RegSponsor" element={<RegSponsor />} />
           <Route path="/Requests" element={<Request />} />
-          <Route path="/yourEvents" element={<YourEvents />} />
+          <Route path="/events" element={<YourEvents />} />
           <Route path="/MoreInfo/:id" element={<MoreInfo />} />
 
         </Routes>

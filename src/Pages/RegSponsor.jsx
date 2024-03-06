@@ -52,7 +52,7 @@ const RegSponsor = () => {
                     sponsor_id: user.userID
                 })
 
-                navigate('/yourEvents')
+                navigate('/Events')
             } else {
                 console.log("error", response.data.error);
                 alert(response.data.message);
