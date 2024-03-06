@@ -29,7 +29,7 @@ function AdminNavbar() {
                     <div className=' flex text-lg ml-14 space-x-10'>
                        
                         <button><Link to="/Table">Users</Link></button>
-                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="">
+                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/Table1">
                             <div className="relative  ">
                                 <div>
                                     Sponsors
