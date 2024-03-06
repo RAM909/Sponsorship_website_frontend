@@ -4,6 +4,17 @@ import axios from 'axios';
 function UserTable1() {
     const [sponsors, setSponsors] = useState([]);
     const [showTable, setShowTable] = useState(false);
+    const [count,setCount] = useState(1);
+
+    const handleApprove = async (index) => {
+        const res = await axios.post('http://localhost:5000/api/admin/approvingApplication',{sponsorId:sponsors[index]._id,status:"approve"},{
+            headers:{
+                Authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+        }); // Change the URL
+
+       console.log(sponsors[index]._id) 
+    }
 
     useEffect(() => {
         const getAllSponsors = async () => {
@@ -13,7 +24,9 @@ function UserTable1() {
                         Authorization:`Bearer ${localStorage.getItem('token')}`
                     }
                 });
+                console.log(response.data.sponsor)
                 setSponsors(response.data.sponsor);
+                console.log()
             } catch (error) {
                 console.error('Error fetching sponsors:', error);
             }
@@ -38,13 +51,16 @@ function UserTable1() {
                             <tr>
                                 <th className="border px-4 py-2">Email</th>
                                 <th className="border px-4 py-2">Industry</th>
+                                <th className="border px-4 py-2">Approve</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {sponsors.map(sponsor => (
-                                <tr key={sponsor._id}>
+                            {sponsors.map((sponsor,index) => (
+                                <tr key={sponsor._id} >
+                                    <td className="border px-4 py-2">{count+index}</td>
                                     <td className="border px-4 py-2">{sponsor.contact_email}</td>
                                     <td className="border px-4 py-2">{sponsor.industry}</td>
+                                    <td onClick={()=>handleApprove(index)} className="border bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><button>Approve</button></td>
                                 </tr>
                             ))}
                         </tbody>
