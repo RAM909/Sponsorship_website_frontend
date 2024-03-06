@@ -5,26 +5,27 @@ import Navbar from './components/Navbar'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import SignUp from './Pages/SignUp';
+import { UserProvider } from './feature/userslice';
 function App() {
 
-  return (
-    <>
+    return (
+      <>
 
-    
-    <Router>
-      <Navbar />
-      <Routes>
-    
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signUp" element={<SignUp />} />
-      
-      </Routes>
-      
-    </Router>
-      
-    </>
-  )
-}
+
+        <Router>
+          <Navbar />
+          <Routes>
+
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signUp" element={<SignUp />} />
+
+          </Routes>
+
+        </Router>
+
+      </>
+    )
+  }
 
 export default App

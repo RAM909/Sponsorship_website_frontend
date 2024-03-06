@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
+import { UserContext } from '../feature/userslice';
+
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { updateUser } = useContext(UserContext);
+
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -24,6 +28,7 @@ const Login = () => {
         // Clear the input fields after submission
         setUsername('');
         setPassword('');
+        updateUser(userData);
     };
 
     return (
