@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../feature/userslice';
+import { useNavigate } from "react-router-dom";
+import { postUserRegister } from '../apis/api';
 
 const signup = () => {
-    const [username, setUsername] = useState('');
+    const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { updateUser } = useContext(UserContext);
+    const navigate = useNavigate()
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -19,14 +24,25 @@ const signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Here you can handle the sign-in logic, such as making an API call
-        console.log('Username:', username);
+
+        const signupUser = async () => {
+            const response = await postUserRegister({ email, userName, password });
+            if (response.success) {
+                toast.success("Signup successfull");
+                localStorage.setItem("token", response.token);
+                updateUser(response.data.user);
+                navigate("/");
+            } else {
+                alert(response.message);
+            }
+        };
+        signupUser();
+        console.log('Username:', userName);
         console.log('Email:', email);
         console.log('Password:', password);
-        // Clear the input fields after submission
-        setUsername('');
-        setEmail('');
-        setPassword('');
+        // setUsername('');
+        // setEmail('');
+        // setPassword('');
     };
 
     return (
@@ -41,7 +57,7 @@ const signup = () => {
                         id="username"
                         type="text"
                         placeholder="Username"
-                        value={username}
+                        value={userName}
                         onChange={handleUsernameChange}
                         required
                     />

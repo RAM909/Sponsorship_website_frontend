@@ -1,53 +1,50 @@
 import React, { useState,useContext } from 'react';
 import { UserContext } from '../feature/userslice';
+import { postUserLogin } from '../apis/api';
 
 
 const Login = () => {
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const { updateUser } = useContext(UserContext);
 
-
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    };
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
     };
-    const [email, setEmail] = useState('');
-
+   
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Here you can handle the login logic, such as making an API call
+
+        const loginUser = async () => {
+            const response = await postUserLogin({email,password});
+      
+            if (response.success) {
+              localStorage.setItem("token", response.token);
+              updateUser(response.data.user);
+              alert.success("login succesfull");
+
+
+            } else {
+                alert(response.message);
+            }
+            }
+          
+          loginUser();
+
+
         console.log('Username:', username);
         console.log('Password:', password);
-        // Clear the input fields after submission
-        setUsername('');
-        setPassword('');
-        updateUser(userData);
+        
     };
 
     return (
         <div className="flex justify-center items-center h-screen">
             <form onSubmit={handleSubmit} className="h-2/3 w-96 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8">
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                        Username
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username"
-                        type="text"
-                        placeholder="Username"
-                        value={username}
-                        onChange={handleUsernameChange}
-                        required
-                    />
-                </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                         Email
