@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 function Navbar() {
     const [isHovered, setIsHovered] = useState(false);
-    const {user}=useSelector((state)=>state.user)
+    const { user } = useSelector((state) => state.user)
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -29,7 +29,7 @@ function Navbar() {
                     <div className=' flex text-lg ml-14 space-x-10'>
                         <button><Link to="/Find">Sponsors</Link></button>
                         <button><Link to="/Opportunites">Opportunities</Link></button>
-                        <button  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
+                        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
                             <div className="relative  ">
                                 <div>
                                     About
@@ -37,12 +37,12 @@ function Navbar() {
                                 <div className={`mt-6 border
                                 rounded-md border-black h-40 w-40 bg-gray-500 absolute ${isHovered ? 'visible' : 'hidden'}`}>
                                     <ol className='text-white text-start'>
-                                        <Link to ="/AboutUS"><li>About us</li></Link>
-                                        
-                                        <Link to ="/pricing"><li>Pricing us</li></Link>
-                                        
-                                        <Link to ="/Privacy"><li>Privacy Policy</li></Link>
-                                        
+                                        <Link to="/AboutUS"><li>About us</li></Link>
+
+                                        <Link to="/pricing"><li>Pricing us</li></Link>
+
+                                        <Link to="/Privacy"><li>Privacy Policy</li></Link>
+
                                     </ol>
                                 </div>
                             </div>
@@ -50,14 +50,14 @@ function Navbar() {
 
                     </div>
                 </div>
-                
+
                 <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
                     <div className='flex items-center justify-center'>
                         <button>Logout</button>
                     </div>
                     <Link to='/account'>
                         <div className='flex justify-center items-center '>
-                            <div className='mr-3'>{user.username}</div>
+                            <div className='mr-3'>{user ? user.username : "username"}</div>
                             <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
                         </div>
                     </Link>
