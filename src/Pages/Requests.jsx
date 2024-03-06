@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../layout/layout';
+
 const Requests = () => {
     // Sample array of requests (replace with actual data)
     const requests = [
@@ -9,33 +11,33 @@ const Requests = () => {
     ];
 
     return (
-        <>
         <Layout>
-
-
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-4">Requests</h2>
-            <div className="overflow-x-auto">
-                <table className="table-auto w-full border-collapse border border-gray-200">
-                    <thead>
-                        <tr className="bg-gray-100">
-                            <th className="px-4 py-2">Event Name</th>
-                            <th className="px-4 py-2">Message</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {requests.map((request, index) => (
-                            <tr key={index} className={index % 2 === 0 ? 'bg-gray-50 border-b border-gray-200' : 'bg-white border-b border-gray-200'}>
-                                <td className="px-4 py-2">{request.eventName}</td>
-                                <td className="px-4 py-2">{request.message}</td>
+            <div className="container mx-auto px-4 py-8">
+                <h2 className="text-2xl font-bold mb-4">Requests</h2>
+                <div className="overflow-x-auto">
+                    <table className="table-auto w-full border-collapse border border-gray-200">
+                        <thead>
+                            <tr className="bg-gray-100">
+                                <th className="px-4 py-2">Event Name</th>
+                                <th className="px-4 py-2">Message</th>
+                                <th className="px-4 py-2">Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {requests.map((request, index) => (
+                                <tr key={index} className={index % 2 === 0 ? 'bg-gray-50 border-b border-gray-200' : 'bg-white border-b border-gray-200'}>
+                                    <td className="px-4 py-2">{request.eventName}</td>
+                                    <td className="px-4 py-2">{request.message}</td>
+                                    <td className="px-4 py-2">
+                                        <Link to="/update"className="text-blue-500 hover:text-blue-700">Open</Link>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-                        </Layout>
-                        </>
+        </Layout>
     );
 };
 

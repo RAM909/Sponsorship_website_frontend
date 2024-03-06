@@ -21,6 +21,7 @@ import Request from './Pages/Requests';
 import YourEvents from './Pages/Events';
 import MoreInfo from './Pages/MoreInfo';
 import Landing from './Pages/Landing';
+import About from './Pages/About';
 function App() {
 
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/RegSponsor" element={<RegSponsor />} />
           <Route path="/Requests" element={<Request />} />
           <Route path="/events" element={<YourEvents />} />
+          <Route path="/about" element={<About />} />
           <Route path="/MoreInfo/:id" element={<MoreInfo />} />
 
         </Routes>
