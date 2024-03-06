@@ -87,7 +87,7 @@ const NewSponsors = () => {
                                 <p>  {sponsor?.budget}</p>
                             </div>
 
-                            <button onClick={() => handleButtonClick(sponsor?.id)} className=' mt-10 border border-red-500 w-32 bg-blue-500 ml-10 rounded-lg px-4 py-2 text-white'>
+                            <button onClick={() => handleButtonClick(sponsor?._id)} className=' mt-10 border border-red-500 w-32 bg-blue-500 ml-10 rounded-lg px-4 py-2 text-white'>
                                 More Info
                             </button>
                         </div>

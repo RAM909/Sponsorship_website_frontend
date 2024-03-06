@@ -16,7 +16,7 @@ import Table1 from './components/Table1'
 import Update from './Pages/Update';
 import SponsorList from './components/SponsorList';
 import NewSponsors from './Pages/NewSponsors';
-import RegSponsor from './Pages/RegSponsor';  
+import RegSponsor from './Pages/RegSponsor';
 import Request from './Pages/Requests';
 import YourEvents from './Pages/YourEvents';
 import MoreInfo from './Pages/MoreInfo';
@@ -37,12 +37,12 @@ function App() {
           <Route path="/AdminNavbar" element={<AdminNavbar />} />
           <Route path="/Table" element={<Table />} />
           <Route path="/Table1" element={<Table1 />} />
-          <Route path="/update" element={<Update/>} />
-          <Route path="/Opportunites" element={<NewSponsors/>} />
-          <Route path="/RegSponsor" element={<RegSponsor  />} />
-          <Route path="/Requests" element={<Request/>} />
-          <Route path="/yourEvents" element={<YourEvents/>} />
-          <Route path="/MoreInfo" element={<MoreInfo/>} />
+          <Route path="/update" element={<Update />} />
+          <Route path="/Opportunites" element={<NewSponsors />} />
+          <Route path="/RegSponsor" element={<RegSponsor />} />
+          <Route path="/Requests" element={<Request />} />
+          <Route path="/yourEvents" element={<YourEvents />} />
+          <Route path="/MoreInfo/:id" element={<MoreInfo />} />
 
         </Routes>
 
