@@ -5,7 +5,6 @@ import topImage from "../assets/topimage.jpg";
 import imagee1 from "../assets/image6.svg";
 import imagee2 from "../assets/image5.svg";
 import imagee3 from "../assets/image4.svg";
-
 const HomePage = () => {
   return (
     <section className="hero relative">
@@ -32,20 +31,20 @@ const HomePage = () => {
                 </button>
               </Link>
             </div>
-            <div className=" w-screen bottom-80 mt-52 bg-">
+            <div className=" w-screen bottom-80 mt-36 bg-">
 
             <section className="features flex justify-center items-center py-16">
               <div className="flex justify-center space-x-8">
                 <div>
-                  <img src={imagee1} alt="Feature 1" className="w-48 h-48" />
+                  <img src={imagee1} alt="Feature 1" className="w-56 h-56" />
                   <p className="text-center mt-4">Register events for free</p>
                 </div>
                 <div>
-                  <img src={imagee2} alt="Feature 2" className="w-48 h-48" />
+                  <img src={imagee2} alt="Feature 2" className="w-56 h-56" />
                   <p className="text-center mt-4">Get access to multiple sponsors</p>
                 </div>
                 <div>
-                  <img src={imagee3} alt="Feature 3" className="w-48 h-48" />
+                  <img src={imagee3} alt="Feature 3" className="w-56 h-56" />
                   <p className="text-center mt-4">Seamlessly get sponsorships</p>
                 </div>
               </div>
