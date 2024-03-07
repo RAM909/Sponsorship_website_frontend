@@ -24,7 +24,7 @@ import Landing from './Pages/Landing';
 import About from './Pages/About';
 import Account from './Pages/Account';
 import Analytic from './Pages/Analytic';
-import Notification from './Pages/Notification';
+import Notifications from './Pages/Notifications';
 function App() {
 
   return (
@@ -54,7 +54,7 @@ function App() {
           <Route path="/MoreInfo/:id" element={<MoreInfo />} />
           <Route path="/account" element={<Account />} />
           <Route path="/analytic" element={<Analytic  />} />
-          <Route path="/notification" element={<Notification  />} />
+          <Route path="/notification" element={<Notifications  />} />
 
         </Routes>
 

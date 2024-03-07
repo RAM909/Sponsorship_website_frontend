@@ -67,6 +67,11 @@ function AdminNavbar() {
                             <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
                         </div>
                     </Link>
+                    <Link to="/notification">
+                        <div className='flex flex-row h-6 ml-6'>
+                            <img src="https://www.svgrepo.com/show/31480/notification-bell.svg" alt="hi" />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </nav>
