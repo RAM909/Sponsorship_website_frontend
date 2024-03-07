@@ -40,14 +40,14 @@ const signup = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen w-screen">
-            <form onSubmit={handleSubmit} className="h-2/3 w-96 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8">
+        <div className="flex justify-center items-center h-screen w-screen bg-gray-900">
+            <form onSubmit={handleSubmit} className="h-2/3 w-96 bg-gray-800 shadow-lg rounded px-8 pt-6 pb-8">
                 <div className="mb-4 ">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+                    <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="username">
                         Username
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-600 leading-tight focus:outline-none focus:shadow-outline hover:bg-gray-700"
                         id="username"
                         type="text"
                         placeholder="Username"
@@ -57,11 +57,11 @@ const signup = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                    <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="email">
                         Email
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-600 leading-tight focus:outline-none focus:shadow-outline hover:bg-gray-700"
                         id="email"
                         type="email"
                         placeholder="Email"
@@ -71,11 +71,11 @@ const signup = () => {
                     />
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                    <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="password">
                         Password
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-600 leading-tight focus:outline-none focus:shadow-outline hover:bg-gray-700"
                         id="password"
                         type="password"
                         placeholder="Password"
@@ -91,14 +91,14 @@ const signup = () => {
                     >
                         Sign Up
                     </button>
-                    <div>
-
-                    already registered?
-                    <a href="/login" className='ml-4 underline'>login</a>
+                    <div className="text-gray-300">
+                        Already Registered?
+                        <a href="/login" className='ml-4 underline'>Login</a>
                     </div>
                 </div>
             </form>
         </div>
+
     );
 };
 

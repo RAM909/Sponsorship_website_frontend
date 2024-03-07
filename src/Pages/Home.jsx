@@ -51,12 +51,15 @@ const HomePage = () => {
                 </div>
               </div>
             </section>
-          
+            <div className="border border-red-500 h-svh">
+
             {/* Place the chart below the images */}
-            <div className="flex h-max bottom-10 w-max mb-10 justify-center align-top  mx-auto">
+            <div className="flex h-max bottom-10 w-96 mb-10 justify-center align-top  mx-auto">
+              <ApexChart />
             </div>
             </div>
           </div>
+        </div>
       </Layout>
     </section>
   );

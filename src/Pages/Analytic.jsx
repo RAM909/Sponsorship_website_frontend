@@ -1,7 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ApexChart from '../components/Apexchart';
+import axios from 'axios';
 
 const Analytic = () => {
+    const [sponsors, setSponsors] = useState([]);
+    const [user, setuser] = useState([]);
+
+    useEffect(() => {
+        const fetchSponsors = async () => {
+            try {
+                const response = await axios.post("http://localhost:5000/api/sponsor/getAllSponsors", {}, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                if (response.data.success) {
+                    setSponsors(response.data.sponsor);
+                } else {
+                    console.log("error", response.data.error);
+                    alert(response.data.message);
+                }
+            } catch (error) {
+                console.log("server Error", error);
+                alert("Server Error");
+            }
+        };
+
+        fetchSponsors();
+    }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
+
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.post("http://localhost:5000/api/users/getAllUser", {}, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                if (response.data.success) {
+                    setuser(response.data.users);
+                } else {
+                    console.log("error", response.data.error);
+                    alert(response.data.message);
+                }
+            } catch (error) {
+                console.log("server Error", error);
+                alert("Server Error");
+            }
+        };
+
+        fetchUsers();
+    }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
+
+    const sponsorLength = sponsors.length;
+    const userlenght = user.length;
+
     return (
         <div className="flex flex-col h-screen bg-gray-200">
             {/* Header */}
@@ -26,19 +80,19 @@ const Analytic = () => {
                     {/* Example Metric 1 */}
                     <div className="bg-white p-4 rounded-lg shadow-md">
                         <h3 className="text-lg font-semibold mb-2">Total Users</h3>
-                        <p className="text-xl font-bold">500</p>
+                        <p className="text-xl font-bold">{userlenght}</p>
                     </div>
 
                     {/* Example Metric 2 */}
                     <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h3 className="text-lg font-semibold mb-2">Active Users</h3>
-                        <p className="text-xl font-bold">300</p>
+                        <h3 className="text-lg font-semibold mb-2">Sponsors available</h3>
+                        <p className="text-xl font-bold">{sponsorLength}</p>
                     </div>
 
                     {/* Example Metric 3 */}
                     <div className="bg-white p-4 rounded-lg shadow-md">
                         <h3 className="text-lg font-semibold mb-2">Revenue</h3>
-                        <p className="text-xl font-bold">$10,000</p>
+                        <p className="text-xl font-bold">Rs 10,000</p>
                     </div>
                 </section>
             </main>

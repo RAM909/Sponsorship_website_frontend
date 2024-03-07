@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root" class=""></div>
-    <button id="hide">Hide </button>
-    <script type="module" src="/src/main.jsx"></script>
-    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/9cbd0bee-47b2-458e-9fc8-f6cc1c97f583/webchat/config.js" defer></script>
-    <script>
-      document.getElementById('hide').addEventListener('click', function() {
-        window.botpressWebChat.toggleVisibility();
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/9cbd0bee-47b2-458e-9fc8-f6cc1c97f583/webchat/config.js" defer></script>
+</body>
 </html>
