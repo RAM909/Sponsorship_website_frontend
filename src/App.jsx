@@ -51,7 +51,7 @@ function App() {
           <Route path="/Opportunites" element={<NewSponsors />} />
           <Route path="/RegSponsor" element={<RegSponsor />} />
           <Route path="/Requests" element={<Request />} />
-          <Route path="/events" element={<YourEvents />} />
+          {/* <Route path="/events" element={<YourEvents />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/MoreInfo/:id" element={<MoreInfo />} />
           <Route path="/account" element={<Account />} />

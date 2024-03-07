@@ -21,8 +21,30 @@ function Navbar() {
         localStorage.clear();
         navigate("/login")
         window.location.reload();
+
+
     }
 
+    function downloadPDF() {
+        // Replace 'path/to/your/pdf.pdf' with the actual URL of your PDF file
+        var pdfURL = './assets/MOU.pdf';
+        
+        // Create a link element
+        var link = document.createElement('a');
+        link.href = pdfURL;
+        
+        // Set the download attribute with the desired filename
+        link.download = 'your_filename.pdf';
+        
+        // Append the link to the document body
+        document.body.appendChild(link);
+        
+        // Programmatically click on the link to trigger the download
+        link.click();
+        
+        // Remove the link from the document body
+        document.body.removeChild(link);
+    }
 
     return (
         <nav className="sticky z-50 top-0 bg-slate-500 text-xl">
@@ -40,7 +62,7 @@ function Navbar() {
                         <button><Link to="/Opportunites">Opportunities</Link></button>
                         <button><Link to="/RegSponsor">Be a Sponsor</Link></button>
                         <button className=''><Link to="/Requests">Requests</Link></button>
-                        <button><Link to="/events">Your Events</Link></button>
+                        <button onClick={downloadPDF}>Dwld MOU</button>
                         <button><Link to="/About">About Us</Link></button>
                         <button><Link to="/Analytic">Analytic</Link></button>
                         <button><Link to="/Room">Video Call</Link></button>
