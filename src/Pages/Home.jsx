@@ -51,9 +51,12 @@ const HomePage = () => {
                 </div>
               </div>
             </section>
+          
+            {/* Place the chart below the images */}
+            <div className="flex h-max bottom-10 w-max mb-10 justify-center align-top  mx-auto">
+            </div>
             </div>
           </div>
-        </div>
       </Layout>
     </section>
   );

@@ -3,10 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
-
 const ApplicationForm = () => {
-    const { user } = useSelector((state) => state.user)
-    console.log(user);
+    const { user } = useSelector((state) => state.user);
 
     const [formData, setFormData] = useState({
         eventName: '',
@@ -19,8 +17,8 @@ const ApplicationForm = () => {
     });
 
     const [step, setStep] = useState(1);
-    const [isSubmitting, setIsSubmitting] = useState(false); // Add state for submission status
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, type } = e.target;
@@ -32,23 +30,18 @@ const ApplicationForm = () => {
         });
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
         if (!isSubmitting) {
-            setIsSubmitting(true); // Set isSubmitting to true when form is submitted
+            setIsSubmitting(true);
             try {
                 const response = await axios.post("http://localhost:5000/api/events/create-event", formData, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
                 });
-                console.log(response);
                 if (response.data.message === "Event created successfully") {
-                    console.log("reached")
                     alert(response.data.message);
-                    console.log("reached")
                     setFormData({
                         eventName: '',
                         eventType: '',
@@ -58,17 +51,15 @@ const ApplicationForm = () => {
                         date: '',
                         userId: user?.userID
                     })
-
                     navigate('/Events')
                 } else {
-                    console.log("error", response.data.error);
                     alert(response.data.message);
                 }
             } catch (error) {
                 console.log("server Error", error);
                 alert("Server Error");
             } finally {
-                setIsSubmitting(false); // Set isSubmitting back to false after submission
+                setIsSubmitting(false);
             }
         }
     };
@@ -113,7 +104,7 @@ const ApplicationForm = () => {
     ];
 
     return (
-        <div className="max-w-md mx-auto mt-8 px-4">
+        <div className="max-w-md mx-auto mt-8 px-4 bg-gray-100">
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg overflow-hidden">
                 <div className="grid grid-cols-1 gap-6 p-6">
                     {step === 1 && (
@@ -183,12 +174,12 @@ const ApplicationForm = () => {
                 </div>
                 <div className="p-6 bg-gray-50">
                     {step !== 1 && (
-                        <button onClick={prevStep} className="mr-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Previous</button>
+                        <button onClick={prevStep} className="mr-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Previous</button>
                     )}
                     {step !== 3 ? (
-                        <button onClick={nextStep} className={`py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>Next</button>
+                        <button onClick={nextStep} className={`py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>Next</button>
                     ) : (
-                        <button type="button" onClick={handleSubmit} disabled={isSubmitting} className={`py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>Submit</button>
+                        <button type="button" onClick={handleSubmit} disabled={isSubmitting} className={`py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting && 'opacity-50 cursor-not-allowed'}`}>Submit</button>
                     )}
                 </div>
             </form>

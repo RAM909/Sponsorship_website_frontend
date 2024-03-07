@@ -35,21 +35,21 @@ function Navbar() {
                         </Link>
                     </button>
 
-                    <div className=' flex text-lg ml-14 space-x-10 justify-center items-center'>
-                        <button><Link to="/Find">Sponsors</Link></button>
-                        <button><Link to="/Opportunites">Opportunities</Link></button>
-                        <button><Link to="/RegSponsor">Be a Sponsor</Link></button>
-                        <button className=''><Link to="/Requests">Requests</Link></button>
-                        <button><Link to="/events">Your Events</Link></button>
-                        <button><Link to="/About">About Us</Link></button>
-                        <button><Link to="/Analytic">Analytic</Link></button>
-                        <button><Link to="/Room">Video Call</Link></button>
+                    <div className='flex text-lg ml-14 space-x-10 justify-center items'>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Opportunites">Opportunities</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Find">Sponsors</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/RegSponsor">Be a Sponsor</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Requests">Requests</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/events">Your Events</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/About">About Us</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Analytic">Analytic</Link></button>
+    <button className=" hover:text-white rounded-full pt transition duration-300 ease-in-out"><Link to="/Room">Video Call</Link></button>
+</div>
 
 
-                    </div>
                 </div>
 
-                {user ? <div className="fixed flex flex-row justify-items-center items-center right-10 pt-6 cursor-pointer">
+                {user ? <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
                     <div className='flex items-center justify-center mr-5'>
                         <button onClick={logouthandle}>Logout</button>
                     </div>
