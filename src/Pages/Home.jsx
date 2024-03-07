@@ -39,25 +39,18 @@ const HomePage = () => {
               <div className="flex justify-center space-x-8">
                 <div>
                   <img src={imagee1} alt="Feature 1" className="w-56 h-56" />
-                  <p className="text-center mt-4">Register events for free</p>
+                  <p className="text-center text-xl mt-4">Register events for free</p>
                 </div>
                 <div>
                   <img src={imagee2} alt="Feature 2" className="w-56 h-56" />
-                  <p className="text-center mt-4">Get access to multiple sponsors</p>
+                  <p className="text-center text-xl mt-4">Get access to multiple sponsors</p>
                 </div>
                 <div>
                   <img src={imagee3} alt="Feature 3" className="w-56 h-56" />
-                  <p className="text-center mt-4">Seamlessly get sponsorships</p>
+                  <p className="text-center text-xl mt-4">Seamlessly get sponsorships</p>
                 </div>
               </div>
             </section>
-            <div className="border border-red-500 h-svh">
-
-            {/* Place the chart below the images */}
-            <div className="flex h-max bottom-10 w-96 mb-10 justify-center align-top  mx-auto">
-              <ApexChart />
-            </div>
-            </div>
           </div>
         </div>
       </Layout>

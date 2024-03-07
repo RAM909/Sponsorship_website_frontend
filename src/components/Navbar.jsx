@@ -36,8 +36,8 @@ function Navbar() {
                     </button>
 
                     <div className='flex text-lg ml-14 space-x-10 justify-center items'>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Opportunites">Opportunities</Link></button>
     <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Find">Sponsors</Link></button>
+    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Opportunites">Opportunities</Link></button>
     <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/RegSponsor">Be a Sponsor</Link></button>
     <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Requests">Requests</Link></button>
     <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/events">Your Events</Link></button>
