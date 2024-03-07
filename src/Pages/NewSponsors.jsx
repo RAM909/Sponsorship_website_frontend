@@ -11,7 +11,7 @@ const NewSponsors = () => {
     useEffect(() => {
         const fetchSponsors = async () => {
             try {
-                const response = await axios.post("http://localhost:5000/api/sponsor/getAllSponsors", {}, {
+                const response = await axios.post("https://shah-and-anchor-backend.onrender.com/api/sponsor/getAllSponsors", {}, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

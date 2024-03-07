@@ -1,5 +1,5 @@
 import axios from "axios";
-const host = "http://localhost:5000";
+const host = "https://shah-and-anchor-backend.onrender.com";
 
 export const postUserLogin = async (data) => {
     try {
@@ -26,16 +26,16 @@ export const postUserRegister = async (data) => {
 
 export const getSponserdata = async () => {
     try {
-      const token = localStorage.getItem("token");
-      console.log(token);
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      const response = await axios.post(`${host}/api/sponsor/getAllSponsors`, { headers });
-      console.log(response);
-      return response;
+        const token = localStorage.getItem("token");
+        console.log(token);
+        const headers = {
+            Authorization: `Bearer ${token}`,
+        };
+        const response = await axios.post(`${host}/api/sponsor/getAllSponsors`, { headers });
+        console.log(response);
+        return response;
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  };
+};
 

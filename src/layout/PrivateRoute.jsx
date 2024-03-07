@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
   const getUSer = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/users/getUser",
+        "https://shah-and-anchor-backend.onrender.com/api/users/getUser",
         {
           token: localStorage.getItem("token"),
         },

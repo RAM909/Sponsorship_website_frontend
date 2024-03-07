@@ -35,7 +35,7 @@ const ApplicationForm = () => {
         if (!isSubmitting) {
             setIsSubmitting(true);
             try {
-                const response = await axios.post("http://localhost:5000/api/events/create-event", formData, {
+                const response = await axios.post("https://shah-and-anchor-backend.onrender.com/api/events/create-event", formData, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

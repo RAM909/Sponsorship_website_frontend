@@ -9,7 +9,7 @@ function UserTable1() {
 
   const handleApprove = async (index) => {
     const res = await axios.post(
-      "http://localhost:5000/api/admin/approve-sponsor",
+      "https://shah-and-anchor-backend.onrender.com/api/admin/approve-sponsor",
       { sponsorId: sponsors[index]._id, status: "approved" },
       {
         headers: {
@@ -25,7 +25,7 @@ function UserTable1() {
     const getAllSponsors = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/sponsor/getAllUnSponsors",
+          "https://shah-and-anchor-backend.onrender.com/api/sponsor/getAllUnSponsors",
           {},
           {
             headers: {

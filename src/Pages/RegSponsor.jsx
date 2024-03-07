@@ -32,7 +32,7 @@ const RegSponsor = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/api/sponsor/become-sponsor", formData, {
+            const response = await axios.post("https://shah-and-anchor-backend.onrender.com/api/sponsor/become-sponsor", formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -52,7 +52,7 @@ const RegSponsor = () => {
                     sponsor_id: user?.userID
                 })
 
-                navigate('/Events')
+                // navigate('/Events')
             } else {
                 console.log("error", response.data.error);
                 alert(response.data.message);

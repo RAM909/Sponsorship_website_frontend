@@ -9,7 +9,7 @@ function UserTable() {
     useEffect(() => {
         const getUsers = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/api/users/getAllUser',{},{
+                const response = await axios.post('https://shah-and-anchor-backend.onrender.com/api/users/getAllUser',{},{
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem('token')}`
                     }

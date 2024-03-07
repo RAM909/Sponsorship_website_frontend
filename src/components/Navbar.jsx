@@ -62,7 +62,7 @@ function Navbar() {
                         <button><Link to="/Opportunites">Opportunities</Link></button>
                         <button><Link to="/RegSponsor">Be a Sponsor</Link></button>
                         <button className=''><Link to="/Requests">Requests</Link></button>
-                        <button><Link to="/events">Your Events</Link></button>
+                        <button onClick={downloadPDF}>Dwld MOU</button>
                         <button><Link to="/About">About Us</Link></button>
                         <button><Link to="/Analytic">Analytic</Link></button>
                         <button><Link to="/Room">Video Call</Link></button>

@@ -15,7 +15,7 @@ const Requests = () => {
         const fetchSponsorDetails = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.post(`http://localhost:5000/api/application/all-apply`, {
+                const response = await axios.post(`https://shah-and-anchor-backend.onrender.com/api/application/all-apply`, {
                     sponsorId: id
                 }, {
                     headers: {

@@ -22,7 +22,7 @@ const Login = () => {
         try {
             e.preventDefault();
             console.log(email, password);
-            const response = await axios.post("http://localhost:5000/api/users/login", {
+            const response = await axios.post("https://shah-and-anchor-backend.onrender.com/api/users/login", {
                 email,
                 password,
             });

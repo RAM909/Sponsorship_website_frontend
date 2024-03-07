@@ -26,7 +26,7 @@ const Notifications = () => {
 useEffect (()=>{
     const Notification = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/users/see-notifications', {}, {
+            const res = await axios.post('https://shah-and-anchor-backend.onrender.com/api/users/see-notifications', {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

@@ -27,7 +27,7 @@ const MoreInfo = () => {
             const token = localStorage.getItem('token');
             console.log(token);
             try {
-                const response = await axios.post(`http://localhost:5000/api/sponsor/getSponsor/${id}`, {}, {
+                const response = await axios.post(`https://shah-and-anchor-backend.onrender.com/api/sponsor/getSponsor/${id}`, {}, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -66,7 +66,7 @@ const MoreInfo = () => {
         console.log(token);
         console.log(formValues);
         try {
-            const response = await axios.post('http://localhost:5000/api/application/apply', formValues, {
+            const response = await axios.post('https://shah-and-anchor-backend.onrender.com/api/application/apply', formValues, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
