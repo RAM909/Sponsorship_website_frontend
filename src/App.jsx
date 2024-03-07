@@ -39,10 +39,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing/>} />
           <Route path="/Home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
-          {/* <Route path="/Find" element={<FindSponsor />} /> */}
+          <Route path="/Find" element={<PrivateRoute><FindSponsor /></PrivateRoute>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/find" element={<FindSponsor />} />
+          <Route path="/find" element={<PrivateRoute><FindSponsor /></PrivateRoute>} />
           <Route path="/signUp" element={<SignUp />} />
+<<<<<<< HEAD
           <Route path="/register" element={<ApplicationForm />} />
           <Route path="/AdminNavbar" element={<AdminNavbar />} />
           <Route path="/Table" element={<Table />} />
@@ -59,6 +60,24 @@ function App() {
           <Route path="/notification" element={<Notifications  />} />
           <Route path="/room" element={<Room  />} />
           <Route path="/room/:roomId" element={<RoomPage  />} />
+=======
+          <Route path="/register" element={<PrivateRoute><ApplicationForm /></PrivateRoute>} />
+          <Route path="/AdminNavbar" element={<PrivateRoute><AdminNavbar /></PrivateRoute>} />
+          <Route path="/Table" element={<PrivateRoute><Table /></PrivateRoute>} />
+          <Route path="/Table1" element={<PrivateRoute><Table1 /></PrivateRoute>} />
+          <Route path="/update" element={<PrivateRoute><Update /></PrivateRoute>} />
+          <Route path="/Opportunites" element={<PrivateRoute><NewSponsors /></PrivateRoute>} />
+          <Route path="/RegSponsor" element={<PrivateRoute><RegSponsor /></PrivateRoute>} />
+          <Route path="/Requests" element={<PrivateRoute><Request /></PrivateRoute>} />
+          <Route path="/events" element={<PrivateRoute><YourEvents /></PrivateRoute>} />
+          <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
+          <Route path="/MoreInfo/:id" element={<PrivateRoute><MoreInfo /></PrivateRoute>} />
+          <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />
+          <Route path="/analytic" element={<PrivateRoute><Analytic  /></PrivateRoute>} />
+          <Route path="/notification" element={<PrivateRoute><Notifications  /></PrivateRoute>} />
+          <Route path="/room" element={<PrivateRoute><Room  /></PrivateRoute>} />
+          <Route path="/room/:roomId" element={<PrivateRoute><RoomPage  /></PrivateRoute>} />
+>>>>>>> c01764b3341d7753382c13709cf5cf7130009518
 
         </Routes>
 
