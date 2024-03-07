@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Layout from '../layout/layout';
 
 function UserTable() {
     const [users, setUsers] = useState([]);
@@ -23,7 +24,8 @@ function UserTable() {
     }, []);
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <Layout>
+        <div className="max-w-4xl mx-auto px-4 py-8 h-screen">
             <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={() => setShowTable(!showTable)}
@@ -52,6 +54,7 @@ function UserTable() {
                 </div>
             )}
         </div>
+        </Layout>
     );
 }
 
