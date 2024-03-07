@@ -91,6 +91,11 @@ const signup = () => {
                     >
                         Sign Up
                     </button>
+                    <div>
+
+                    already registered?
+                    <a href="/login" className='ml-4 underline'>login</a>
+                    </div>
                 </div>
             </form>
         </div>

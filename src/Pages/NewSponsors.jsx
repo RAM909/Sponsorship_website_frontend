@@ -72,26 +72,26 @@ const NewSponsors = () => {
             </div>
             <div className='flex flex-wrap gap-10 justify-center'>
                 {(searchTerm ? filteredSponsors : sponsors).map((sponsor) => (
-                    <div key={sponsor?.id} className='border border-red-500 h-72 w-64'>
-                        <div className='p-4 flex flex-col justify-between'>
-                            <div>
-                                <h2 className="text-lg font-bold">Location</h2>
-                                <p>{sponsor?.location}</p>
-                            </div>
-                            <div>
-                                <h2 className="text-lg font-bold">Industry Name</h2>
-                                <p>{sponsor?.industry}</p>
-                            </div>
-                            <div className='flex flex-col '>
-                                <h2 className="text-lg font-bold">Budget </h2>
-                                <p>  {sponsor?.budget}</p>
-                            </div>
-
-                            <button onClick={() => handleButtonClick(sponsor?._id)} className=' mt-10 border border-red-500 w-32 bg-blue-500 ml-10 rounded-lg px-4 py-2 text-white'>
-                                More Info
-                            </button>
+                    <div key={sponsor?.id} className='h-72 w-64' style={{ backgroundColor: 'rgba(195, 205, 232, 0.8)', backdropFilter: 'blur(10px)', webkitBackdropFilter: 'blur(10px)' }}>
+                    <div className='p-4 flex flex-col justify-between'>
+                        <div>
+                            <h2 className="text-lg font-bold">Location</h2>
+                            <p>{sponsor?.location}</p>
                         </div>
+                        <div>
+                            <h2 className="text-lg font-bold">Industry Name</h2>
+                            <p>{sponsor?.industry}</p>
+                        </div>
+                        <div className='flex flex-col '>
+                            <h2 className="text-lg font-bold">Budget </h2>
+                            <p>{sponsor?.budget}</p>
+                        </div>
+                        <button onClick={() => handleButtonClick(sponsor?._id)} className='mt-10 border border-blue-200 w-32 bg-blue-500 ml-10 rounded-lg px-4 py-2 text-white'>
+                            More Info
+                        </button>
                     </div>
+                </div>
+                
                 ))}
             </div>
                 </Layout>

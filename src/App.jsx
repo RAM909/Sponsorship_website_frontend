@@ -22,6 +22,8 @@ import YourEvents from './Pages/Events';
 import MoreInfo from './Pages/MoreInfo';
 import Landing from './Pages/Landing';
 import About from './Pages/About';
+import Account from './Pages/Account';
+import Analytic from './Pages/Analytic';
 function App() {
 
   return (
@@ -30,6 +32,7 @@ function App() {
 
       <Router>
         {/* <Navbar/>  */}
+        
         <Routes>
           <Route path="/" element={<Landing/>} />
           <Route path="/Home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
@@ -48,6 +51,8 @@ function App() {
           <Route path="/events" element={<YourEvents />} />
           <Route path="/about" element={<About />} />
           <Route path="/MoreInfo/:id" element={<MoreInfo />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/analytic" element={<Analytic  />} />
 
         </Routes>
 

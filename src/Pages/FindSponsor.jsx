@@ -23,7 +23,7 @@ const Find = () => {
           // Take the top 5 sponsors
           const top5Sponsors = sortedSponsors.slice(0, 5);
           setSponsors(top5Sponsors);
-          
+
         } else {
           console.log("error", response.data.error);
           alert(response.data.message);
@@ -54,7 +54,7 @@ const Find = () => {
           <div className='flex gap-4'>
             <div className='flex gap-10'>
               {sponsors.map((sponsor, index) => (
-                <div key={sponsor?.id} className='border border-red-500 h-72 w-64'>
+                <div key={sponsor?.id} className=' h-72 w-64' style={{ backgroundColor: 'rgba(195, 205, 232, 0.8)', backdropFilter: 'blur(10px)', webkitBackdropFilter: 'blur(10px)' }}>
                   <div className='p-4 flex flex-col justify-between'>
                     <div>
                       <h2 className="text-lg font-bold">Industry Name</h2>
@@ -64,17 +64,16 @@ const Find = () => {
                       <h2 className="text-lg font-bold">Location</h2>
                       <p>{sponsor?.location}</p>
                     </div>
-
                     <div className='flex flex-col '>
-                      <h2 className="text-lg font-bold">Budget </h2>
-                      <p>  {sponsor?.budget}</p>
+                      <h2 className="text-lg font-bold">Budget</h2>
+                      <p>{sponsor?.budget}</p>
                     </div>
-
-                    <button onClick={() => handleButtonClick(sponsor?._id)} className=' mt-10 border border-red-500 w-32 bg-blue-500 ml-10 rounded-lg px-4 py-2 text-white'>
+                    <button onClick={() => handleButtonClick(sponsor?._id)} className='mt-10  w-32 bg-blue-500 ml-10 rounded-lg px-4 py-2 text-white'>
                       More Info
                     </button>
                   </div>
                 </div>
+
               ))}
             </div>
           </div>

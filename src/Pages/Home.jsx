@@ -5,15 +5,18 @@ import topImage from "../assets/topimage.jpg";
 import imagee1 from "../assets/image6.svg";
 import imagee2 from "../assets/image5.svg";
 import imagee3 from "../assets/image4.svg";
+import ApexChart from "../components/Apexchart";
+
 const HomePage = () => {
   return (
     <section className="hero relative">
       <Layout>
-        <img src={topImage} alt="Top Image" className="top-image object-cover backdrop-blur-lg  h-screen w-screen" />
+        <img src={topImage} alt="Top Image" className="top-image object-cover backdrop-blur-lg h-screen w-screen" />
         <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
           <div className="text-center text-white">
             <h1 className="text-4xl font-bold mb-4">Welcome to Our Platform</h1>
             <p className="text-lg mb-8">Discover and join amazing events</p>
+            
             <div className="flex justify-center space-x-4">
               <Link to="/RegSponsor">
                 <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
@@ -31,9 +34,8 @@ const HomePage = () => {
                 </button>
               </Link>
             </div>
-            <div className=" w-screen bottom-80 mt-36 bg-">
 
-            <section className="features flex justify-center items-center py-16">
+            <section className="top-10 features gap-14 justify-center items-center py-16">
               <div className="flex justify-center space-x-8">
                 <div>
                   <img src={imagee1} alt="Feature 1" className="w-56 h-56" />
@@ -49,9 +51,11 @@ const HomePage = () => {
                 </div>
               </div>
             </section>
+          
+            {/* Place the chart below the images */}
+            
             </div>
           </div>
-        </div>
       </Layout>
     </section>
   );
