@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Layout from "../layout/layout";
 import topImage from "../assets/topimage.jpg";
 
 const Landing = () => {
     return (
         <section className="hero relative">
-            <Layout>
+
                 <img src={topImage} alt="Top Image" className="top-image object-cover backdrop-blur-lg h-screen w-screen" />
                 <div className="absolute inset-0 flex justify-center items-start bg-black bg-opacity-50">
                     <div className="text-center text-white mt-52">
@@ -26,7 +25,6 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
-            </Layout>
         </section>
     );
 };

@@ -41,36 +41,26 @@ function Navbar() {
                         <button><Link to="/RegSponsor">Be a Sponsor</Link></button>
                         <button className=''><Link to="/Requests">Requests</Link></button>
                         <button><Link to="/events">Your Events</Link></button>
-                        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><Link to="/About">
-                            <div className="relative  ">
-                                <div>
-                                    About
-                                </div>
-                                <div className={`mt-6 border
-                                rounded-md border-black h-40 w-40 bg-gray-500 absolute ${isHovered ? 'visible' : 'hidden'}`}>
-                                    <ol className='text-white text-start'>
-                                        <Link to="/AboutUS"><li>About us</li></Link>
+                        <button><Link to="/About">About Us</Link></button>
+                        <button><Link to="/Analytic">Analytic</Link></button>
 
-                                        <Link to="/pricing"><li>Pricing us</li></Link>
-
-                                        <Link to="/Privacy"><li>Privacy Policy</li></Link>
-
-                                    </ol>
-                                </div>
-                            </div>
-                        </Link></button>
 
                     </div>
                 </div>
 
                 {user ? <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
-                    <div className='flex items-center justify-center'>
+                    <div className='flex items-center justify-center mr-5'>
                         <button onClick={logouthandle}>Logout</button>
                     </div>
                     <Link to='/account'>
                         <div className='flex justify-center items-center '>
-                            <div className='mr-3 ml-2'>{user ? user.username : ""}</div>
-                            <img className='h-8 mt-2' src="https://cdn-icons-png.flaticon.com/128/2609/2609282.png" alt="" />
+                            <div className='mr-5 ml-2 gap-10 '>{user ? user.username.toUpperCase() : ""}</div>
+
+                        </div>
+                    </Link>
+                    <Link to="/notification">
+                        <div className='flex flex-row h-6 '>
+                            <img src="https://www.svgrepo.com/show/31480/notification-bell.svg" alt="hi" />
                         </div>
                     </Link>
                 </div> : ""}
