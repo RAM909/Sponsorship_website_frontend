@@ -23,7 +23,7 @@ import { Link } from 'react-router-dom';
 
 const Notifications = () => {
     const [notifications, setNotifications] = useState([])
-
+useEffect (()=>{
     const Notification = async () => {
         try {
             const res = await axios.post('http://localhost:5000/api/users/see-notifications', {}, {
@@ -32,6 +32,7 @@ const Notifications = () => {
                 }
             })
             if (res.data.success) {
+                console.log(res);
                 alert(res.data.message);
                 setNotifications(res.data.notifications)
                 console.log(notifications)
@@ -43,12 +44,11 @@ const Notifications = () => {
             alert.error(error)
         }
     }
+    Notification()
+},[])
 
-    useEffect(() => {
-        if (notifications.length > 0) {
-            Notification()
-        }
-    })
+const data = notifications.length;
+
     return (
         <>
             <div className="h-screen grid place-items-center my-8">
@@ -71,13 +71,13 @@ const Notifications = () => {
                     </div>
                     <p className="mt-8 font-medium text-gray-500 text-sm sm:text-base dark:text-white">Today</p>
                     {notifications.map(notification => (
-                        <div key={notification.data.sponsorId} className="mt-2 px-6 py-4 bg-white rounded-lg shadow w-full">
+                        <div key={notification.type} className="mt-2 px-6 py-4 bg-white rounded-lg shadow w-full">
                             <div className="inline-flex items-center justify-between w-full">
                                 <div className="inline-flex items-center">
                                     <img
                                         src="https://cdn-icons-png.flaticon.com/128/763/763812.png"
                                         alt="Training Icon" className="w-6 h-6 mr-3" />
-                                    <h3 className="font-bold text-base text-gray-800">{notification.data.name}</h3>
+                                    <h3 className="font-bold text-base text-gray-800">{notification.message}</h3>
                                 </div>
                                 <p className="text-xs text-gray-500">
                                     {notification.message}
