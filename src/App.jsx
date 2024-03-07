@@ -25,6 +25,8 @@ import About from './Pages/About';
 import Account from './Pages/Account';
 import Analytic from './Pages/Analytic';
 import Notifications from './Pages/Notifications';
+import Room from './Pages/Room';
+import RoomPage from './Pages/RoomPage';
 function App() {
 
   return (
@@ -55,6 +57,8 @@ function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/analytic" element={<Analytic  />} />
           <Route path="/notification" element={<Notifications  />} />
+          <Route path="/room" element={<Room  />} />
+          <Route path="/room/:roomId" element={<RoomPage  />} />
 
         </Routes>
 
