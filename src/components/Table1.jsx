@@ -12,14 +12,14 @@ function UserTable1() {
                 Authorization:`Bearer ${localStorage.getItem('token')}`
             }
         }); // Change the URL
-
+        window.location.reload();
        console.log(sponsors[index]._id) 
     }
 
     useEffect(() => {
         const getAllSponsors = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/api/sponsor/getAllSponsors',{},{
+                const response = await axios.post('http://localhost:5000/api/sponsor/getAllUnSponsors',{},{
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem('token')}`
                     }

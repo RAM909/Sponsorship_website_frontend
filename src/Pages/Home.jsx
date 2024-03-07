@@ -50,7 +50,7 @@ const HomePage = () => {
               </div>
             </section>
             </div>
-          </div>
+          </div> <div id="webchat"></div>
         </div>
       </Layout>
     </section>
