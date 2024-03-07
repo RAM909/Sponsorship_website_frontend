@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 const MoreInfo = () => {
     const [formData, setFormData] = useState(null);
+    const { user } = useSelector((state) => state.user)
+
     const [userdata, setuserdata] = useState(null);
     const { id } = useParams(); // Accessing the ID parameter from the URL
     const [showApplyForm, setShowApplyForm] = useState(false); // State to toggle the display of the apply form
@@ -12,7 +16,10 @@ const MoreInfo = () => {
         location: '',
         money: '',
         photoUpload: null,
-        link: ''
+        link: '',
+        userId: user?.userID,
+        sponsorId: id,
+
     });
 
     useEffect(() => {

@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+
 
 const ApplicationForm = () => {
+    const { user } = useSelector((state) => state.user)
+    console.log(user);
+
     const [formData, setFormData] = useState({
         eventName: '',
         eventType: '',
         reason: '',
         money: '',
         location: '',
-        date: ''
+        date: '',
+        userId: user?.userID
     });
 
     const [step, setStep] = useState(1);
@@ -25,18 +32,41 @@ const ApplicationForm = () => {
         });
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
         if (!isSubmitting) {
             setIsSubmitting(true); // Set isSubmitting to true when form is submitted
             try {
-                // Simulate API request delay
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                console.log(formData);
-                // Redirect to Opportunities after successful submission
-                navigate('/Opportunites');
+                const response = await axios.post("http://localhost:5000/api/events/create-event", formData, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                console.log(response);
+                if (response.data.message === "Event created successfully") {
+                    console.log("reached")
+                    alert(response.data.message);
+                    console.log("reached")
+                    setFormData({
+                        eventName: '',
+                        eventType: '',
+                        reason: '',
+                        money: '',
+                        location: '',
+                        date: '',
+                        userId: user?.userID
+                    })
+
+                    navigate('/Events')
+                } else {
+                    console.log("error", response.data.error);
+                    alert(response.data.message);
+                }
             } catch (error) {
-                console.error('Error submitting form:', error);
+                console.log("server Error", error);
+                alert("Server Error");
             } finally {
                 setIsSubmitting(false); // Set isSubmitting back to false after submission
             }
