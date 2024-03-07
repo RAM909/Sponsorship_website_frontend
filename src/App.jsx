@@ -51,7 +51,7 @@ function App() {
           <Route path="/Opportunites" element={<PrivateRoute><NewSponsors /></PrivateRoute>} />
           <Route path="/RegSponsor" element={<PrivateRoute><RegSponsor /></PrivateRoute>} />
           <Route path="/Requests" element={<PrivateRoute><Request /></PrivateRoute>} />
-          <Route path="/events" element={<PrivateRoute><YourEvents /></PrivateRoute>} />
+          {/* <Route path="/events" element={<PrivateRoute><YourEvents /></PrivateRoute>} /> */}
           <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
           <Route path="/MoreInfo/:id" element={<PrivateRoute><MoreInfo /></PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />

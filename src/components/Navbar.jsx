@@ -21,8 +21,30 @@ function Navbar() {
         localStorage.clear();
         navigate("/login")
         window.location.reload();
+
+
     }
 
+    function downloadPDF() {
+        // Replace 'path/to/your/pdf.pdf' with the actual URL of your PDF file
+        var pdfURL = './assets/MOU.pdf';
+        
+        // Create a link element
+        var link = document.createElement('a');
+        link.href = pdfURL;
+        
+        // Set the download attribute with the desired filename
+        link.download = 'your_filename.pdf';
+        
+        // Append the link to the document body
+        document.body.appendChild(link);
+        
+        // Programmatically click on the link to trigger the download
+        link.click();
+        
+        // Remove the link from the document body
+        document.body.removeChild(link);
+    }
 
     return (
         <nav className="sticky z-50 top-0 bg-slate-500 text-xl">
@@ -35,18 +57,18 @@ function Navbar() {
                         </Link>
                     </button>
 
-                    <div className='flex text-lg ml-14 space-x-10 justify-center items'>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Find">Sponsors</Link></button>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Opportunites">Opportunities</Link></button>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/RegSponsor">Be a Sponsor</Link></button>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Requests">Requests</Link></button>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/events">Your Events</Link></button>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/About">About Us</Link></button>
-    <button className=" hover:text-white transition duration-300 ease-in-out"><Link to="/Analytic">Analytic</Link></button>
-    <button className=" hover:text-white rounded-full pt transition duration-300 ease-in-out"><Link to="/Room">Video Call</Link></button>
-</div>
+                    <div className=' flex text-lg ml-14 space-x-10 justify-center items-center'>
+                        <button><Link to="/Find">Sponsors</Link></button>
+                        <button><Link to="/Opportunites">Opportunities</Link></button>
+                        <button><Link to="/RegSponsor">Be a Sponsor</Link></button>
+                        <button className=''><Link to="/Requests">Requests</Link></button>
+                        <button><Link to="/events">Your Events</Link></button>
+                        <button><Link to="/About">About Us</Link></button>
+                        <button><Link to="/Analytic">Analytic</Link></button>
+                        <button><Link to="/Room">Video Call</Link></button>
 
 
+                    </div>
                 </div>
 
                 {user ? <div className="fixed flex flex-row justify-items-center items-center right-10 p-4 cursor-pointer">
