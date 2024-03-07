@@ -104,12 +104,14 @@ const ApplicationForm = () => {
     };
 
     const eventTypeOptions = [
+        'Scholarship',
         'Tech Event',
         'Cultural Event',
         'Music Festival',
         'Art Exhibition',
         'Sports Tournament',
         'Food Fair',
+
     ];
 
     return (
