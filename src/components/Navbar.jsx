@@ -43,7 +43,7 @@ function Navbar() {
                         <button><Link to="/events">Your Events</Link></button>
                         <button><Link to="/About">About Us</Link></button>
                         <button><Link to="/Analytic">Analytic</Link></button>
-                
+
 
                     </div>
                 </div>
@@ -55,10 +55,12 @@ function Navbar() {
                     <Link to='/account'>
                         <div className='flex justify-center items-center '>
                             <div className='mr-5 ml-2 gap-10 '>{user ? user.username.toUpperCase() : ""}</div>
-                            
+
+                        </div>
+                    </Link>
+                    <Link to="/notification">
                         <div className='flex flex-row h-6 '>
                             <img src="https://www.svgrepo.com/show/31480/notification-bell.svg" alt="hi" />
-                        </div>
                         </div>
                     </Link>
                 </div> : ""}
