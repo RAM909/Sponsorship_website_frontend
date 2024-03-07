@@ -51,9 +51,11 @@ const HomePage = () => {
                 </div>
               </div>
             </section>
+          
+            {/* Place the chart below the images */}
+            
             </div>
           </div>
-        </div>
       </Layout>
     </section>
   );
